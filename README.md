@@ -38,10 +38,12 @@ stderr스트림은 어떤 명령을 실행시킬 때 오류가 있을 경우 사
 
 예를 들어 존재하지 않는 디렉토리의 컨텐츠를 리스트하려고 하면 에러가 발생하고 에러를 출력하기 위해 사용된 스트림은 사실 stderr이며, stdout이 아니다. 따라서 stderr또한 기본적으로 터미널에 출력하기 때문에 오류 메세지를 터미널에서 볼 수 있다.
 
-'''
-  test-Jaeho:~ Jaeho$ ls testdirect
-  ls: testdirect: No such file or directory
-'''
+```
+
+test-Jaeho:~ Jaeho$ ls testdirect
+ls: testdirect: No such file or directory
+
+```
 
 * 몇몇 명령들은 입력 출력 모두 사용한다. 둘 중 하나만 사용하거나 아예 사용하지 않는 것도 있다.
 
@@ -63,18 +65,19 @@ stderr스트림은 어떤 명령을 실행시킬 때 오류가 있을 경우 사
 
 * 이거에 대한 예제로 sort명령이 있다. 만약 파일 인자와 입력 리다이렉션이 둘 다 없을 경우 터미널은 사용자가 정렬할 스트링을 입력할 때까지 대기한다. 그리고 사용자가 Ctrl-D를 입력하면(sort프로세스의 stdin과 키보드를 연결하는 커뮤니케이션채널의 쓰기 엔드(write end)종료) 그 sort명령을 실행하는 프로세스는 필요한 스트링이 전부 입력되었다고 생각할 것이다. 
 
-'''
-  test-Jaeho:~ Jaeho$ sort
-  bear
-  cobra
-  abrams
-  zero
-  abrams
-  bear
-  cobra
-  zero
+```
 
-'''
+test-Jaeho:~ Jaeho$ sort
+bear
+cobra
+abrams
+zero
+abrams
+bear
+cobra
+zero
+
+```
 그러므로 그 입력된 스트링들은 stdin을 통해 명령을 실행하는 프로세스에게 전달되고 그 프로세스에 의해 정렬된 후 stdout을 통해 터미널에게 출력된다. sort명령은 또한 사용자에게 직접 스트링을 받지 않고 파일 이름을 인자로 받아 그 파일 안의 스트링을 입력으로 사용할 수 있다. 이것은 아까 말한 입력의 정의를 만족하는데 왜냐하면 그것은 파일이면서 sort -r과 같은 옵션인자가 아니기 때문에다. 게다가 sort명령은 리다이렉션을 통해서도 입력을 전달받을 수 있다. 
 
 ### 버퍼:
