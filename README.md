@@ -5,7 +5,7 @@
 |           3                 |     [Nginx](#Nginx)         |
 |           4                 |     [Micro Service Architecture](#MSA)         |
 |           5                 |     [Elasticsearch](#Elasticsearch)         |
-|           5                 |     [Python](#Python)         |
+|           6                 |     [Python](#Python)         |
 
 
 # 리눅스
